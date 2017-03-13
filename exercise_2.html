@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  #app{
+	  	text-align:center;
+	  	margin:0 auto;
+	  }
+
+	  h2{
+	  	text-align: center;
+	  }
+	</style>
+</head>
+<body>
+	<!--
+
+		Exercise 2: "Calculator"
+		Write an application which has two input fields "a" and "b" and two buttons "+" and "*".
+		When the user presses the "+" button, display the sum of the values in "a" and "b" below the input fields.
+		When the user presses the "*" button, display the product of the values in "a" and "b" below the input fields.
+
+	-->
+	<h2>Add and Multiply with buttons</h2>
+	<div id="app">
+	
+		<input 
+			type = "number"
+			v-on:change="addIt"
+			v-model="numberA">
+		<input 
+			type = "number"
+			v-on:change="multiply"
+			v-model="numberB">
+		<button v-on:click="addIt"> + </button>
+		<button v-on:click="multiply"> * </button>	
+		
+        
+        <p>Add = {{add}}</p>          
+
+        <p>Multiply = {{multiply}}</p>
+
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue
+		({
+			el: '#app',
+			data: 
+			{
+				numberA: null,
+				numberB: null,
+				add: null,
+				multiply: null
+			},
+			methods: 
+			{
+				addIt: function()
+				{
+					this.add = parseInt(this.numberA) + parseInt(this.numberB);
+	
+					this.multiply = parseInt(this.numberA) * parseInt(this.numberB);
+				},
+
+				multiply: function()
+				{
+					this.multiply = parseInt(this.numberA) * parseInt(this.numberB);
+
+					 
+	
+					
+				},
+			}
+		});
+	</script>
+</body>
+</html>
